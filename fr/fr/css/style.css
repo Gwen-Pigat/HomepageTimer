@@ -1,6 +1,10 @@
 body{
 	overflow: hidden;
 	font-family: "Oswald";
+	background: -webkit-linear-gradient(white, #C5C5C5); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, #C5C5C5); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, #C5C5C5); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, #C5C5C5); /* Standard syntax (must be last) */
 }
 
 .refresh{
@@ -50,12 +54,13 @@ body{
 }
 
 .timer input{
-	border: 5px #ff0000 solid;
+	border: 5px #5AAFED solid;
 	font-size: 5em;
-	color: #ff0000;
-	text-shadow: 0 0 1px black;
+	color: #5AAFED;
+	text-shadow: 0 0 1px white;
 	text-align: center;
 	border-radius: 15px;
+	background-color: rgba(0,0,0,0);
 	width: 20%;
 }
 
@@ -88,7 +93,7 @@ body{
 
 .main{
 	margin-top: 10%;
-	font-size: 3em;
+	font-size: 3.5em;
 	font-family: "Oswald"
 }
 

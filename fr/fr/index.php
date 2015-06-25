@@ -96,7 +96,7 @@ display()
 
 <?php
 
-// header("Refresh: 27; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
+header("Refresh: 27; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
 
  } 
 
