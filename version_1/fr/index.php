@@ -1,7 +1,6 @@
 <?php include "include/header.php";
 
 
-
 // Page de l'écran noir, se charge après 30 sec sur l'index
 
 $shuffle = str_shuffle("iamthepixofheaven1234567890");
@@ -47,8 +46,7 @@ elseif(isset($_GET['token_invite'])) {
 </form> 
 
 <script type="text/javascript">
-<!-- 
-// 
+
  var milisec=0 
  var seconds=45
  document.counter.d2.value='45' 
@@ -67,8 +65,9 @@ function display(){
     document.counter.d2.value=seconds+"."+milisec+ " s" 
     setTimeout("display()",100) 
 } 
+
 display() 
---> 
+
 </script>
 
 <!--  Fin du timer -->
@@ -110,6 +109,7 @@ else { ?>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
+
 <!-- Le téléphone + ses bulles de texte -->
 
 <!-- <div class="col-md- col-xs-10 col-sm-5 phone">
@@ -117,7 +117,6 @@ else { ?>
 <div class="bulle-2 col-md-6 col-xs-10 col-sm-5">Attention !! Il ne te reste que 15 secondes !!</div>
 <div class="bulle-3 col-md-8 col-xs-10 col-sm-6">Plus que 5 secondes !!</div>
 </div> -->
-
 
 <!-- Le timer -->
 
@@ -189,11 +188,11 @@ if ($row) { ?>
 
 }
 
-else{
-  $date = date("Y-m-d H:i:s");
-  mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
-header("Refresh: 45; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
-}
+// else{
+//   $date = date("Y-m-d H:i:s");
+//   mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
+// header("Refresh: 45; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
+// }
 
 
 include "include/footer.php"; ?>

@@ -12,9 +12,6 @@
 <?php
 
 
-$link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr");
-
-
 // Le parrainage
 
 
@@ -95,6 +92,8 @@ else{
 
       $random = str_shuffle("AKBNGH123456789");
   	mysqli_query($link, "INSERT INTO Catcher(email, identifiant) VALUES ('$_POST[email]','$random')");
+    $date  = date("Y-m-d H:i:s");
+    mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
 
       require 'PHPMailer/class.phpmailer.php';
 
