@@ -2,6 +2,7 @@
 
 // Page de l'écran noir, se charge après 30 sec sur l'index
 
+
 $shuffle = str_shuffle("iamthelawbitch1234567890/*-+.");
 
 if (isset($_GET['Black_screen'])) { ?>
@@ -16,10 +17,9 @@ if (isset($_GET['Black_screen'])) { ?>
 
 elseif(isset($_GET['token_invite'])) {
 
-  $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion");
   $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE identifiant='$_GET[token_invite]'"));?>
 
-<title>Textr</title>
+<title>Textr | version_3</title>
 
 <body>
   <img class="logo" src="img/Untitled.png">
@@ -101,16 +101,6 @@ else { ?>
 
 <body>
 
-<!-- <div class="logo">
-  <ul>
-    <a href=""><li>Intro</li></a>
-    <a href=""><li>Intro</li></a>
-    <a href=""><li>Intro</li></a>
-    <a href=""><li>Intro</li></a>
-  </ul>
-  <img src="img/Untitled.png">
-</div> -->
-
   <div class="col-md-12 col-xs-12 col-sm-12">
 
 <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
@@ -180,7 +170,6 @@ display()
 
 // Calcul de l'adresse ip et disparition du formulaire si déja existante
 
-$link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur co");
 $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Adresse_ip WHERE adresse='$_SERVER[REMOTE_ADDR]'"));
 
 if ($row) { ?>
@@ -198,7 +187,8 @@ if ($row) { ?>
 }
 
 else{
-  mysqli_query($link, "INSERT INTO Adresse_ip(adresse) VALUES ('$_SERVER[REMOTE_ADDR]')")or die("Erreur de l'insert");
+  $date = date("Y-m-d H:i:s");
+  mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
 header("Refresh: 2; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
 }
 
