@@ -15,10 +15,14 @@
 
 body{
 	background: url("../img/Layer.png") center no-repeat;
-	/*background-size: 100%;*/
+	background-size: 100%;
 	font-family: "caviar"
 }
 
+.a2a_kit{
+	border: 1px #5AAFED solid;
+	padding: 1.5%;
+}
 
 /*le logo*/
 
@@ -134,20 +138,30 @@ body{
 }
 
 .timer{
-	width: auto;
-	position: absolute;
-	margin-top: 31%;
-	margin-left: 67%;
+	float: right;
+	margin-top: 1%;
+	margin-right: 16%;
 }
 
 .timer input{
-	font-size: 3.0em;
 	color: #5AAFED;
-	border: 0px;
-	width: auto;
-	text-shadow: 0 0 1px #5AAFED;
 	text-align: center;
 	background-color: rgba(0,0,0,0);
+	border: 0px;
+	font-size: 2em;
+	text-shadow: 0 0 1px #5AAFED;
+}
+
+.catcher{
+	float: left;
+	width: 60%;
+}
+
+.catcher input{
+	padding: 2%;
+	font-size: 1.4em;
+	border: 2px #5AAFED solid;
+	border-radius: 5px 0px 5px 5px;
 }
 
 .inscription{
@@ -182,12 +196,7 @@ body{
 	margin-top: 1%;
 }
 
-.inscription input{
-	padding: 2%;
-	font-size: 1.4em;
-	border: 2px #5AAFED solid;
-	border-radius: 5px 0px 5px 5px;
-}
+
 
 .main h1{
 	margin-top: 25%;
@@ -305,6 +314,9 @@ body{
 /*Format tablette*/
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
+	body{
+		background-size: auto;
+	}
 
   .main h1 {
 	margin-top: 4%;
@@ -321,7 +333,36 @@ body{
   }
   .timer{
   	font-size: 0.6em;
-  	margin-top: 31%;
+  }
+  .footer{
+  	position: fixed;
+  	width: 100%;
+  	display: none;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px) {
+
+	body{
+		background-size: 100%;
+	}
+
+  .main h1 {
+	margin-top: 4%;
+	font-size: 3.5em;
+  }
+  .main{
+  	margin-top: 5%;
+  }
+  .inscription{
+  	font-size: 0.6em;
+  }
+  .inscription h3{
+  	font-size: 2em;
+  }
+  .timer{
+  	font-size: 1.6em;
+  	margin-right: 5%;
   }
   .footer{
   	position: fixed;
@@ -335,6 +376,11 @@ body{
 /*Format téléphone*/
 
 @media screen and (max-width: 768px) {
+
+	body{
+		background-size: auto;
+	}
+
   .main h3{
   	font-size: 1.4em;
   }	 
@@ -358,8 +404,7 @@ body{
   	font-size: 2em;
   }
   .timer{
-  	font-size: 0.6em;
-  	margin-top: 10%;
+  	font-size: 1.6em;
   }
   .footer{
   	position: fixed;
@@ -369,4 +414,12 @@ body{
   	width: 50px;
   }
 
+}
+
+
+/*Redirection vers profil*/
+
+.redirect{
+	padding: 2%;
+	font-size: 2em;
 }

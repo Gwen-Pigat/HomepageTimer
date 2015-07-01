@@ -39,11 +39,23 @@ elseif(isset($_GET['token_invite'])) {
 </div> -->
 
 
+<?php
+
+echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'><form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
+<p class='acces text-center'>45 secondes pour recevoir une invitation</p>
+<input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
+<button class='btn-send'>M'inviter</button>
+</form>
+<form name='counter' class='timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5'>
+  <input type='text' size='8' name='d2'>
+</form> 
+</div>"; 
+
+?>
+
 <!-- Le timer -->
 
-<form name="counter" class="timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5">
-  <input type="text" size="8" name="d2">
-</form> 
+
 
 <script type="text/javascript">
 
@@ -71,17 +83,6 @@ display()
 </script>
 
 <!--  Fin du timer -->
-
-
-<?php
-
-echo "<form class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
-<p class='acces text-center'>45 secondes pour recevoir une invitation</p>
-<input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
-<button class='btn-send'>M'inviter</button>
-</form>"; 
-
-?>
 
   </div>
 
@@ -118,11 +119,26 @@ else { ?>
 <div class="bulle-3 col-md-8 col-xs-10 col-sm-6">Plus que 5 secondes !!</div>
 </div> -->
 
+
+
+
+<!--  Fin du timer -->
+<!-- <p class="text-center demande">Demander une invitation</p> -->
+    <div class="col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
+      <p class="acces text-center">45 secondes pour recevoir une invitation</p>
+      <form class="catcher" action="inscription.php" method="POST">
+      <input type="email" name="email" placeholder="Ton adresse e-mail" required>
+      <button class="btn-send">M'inviter</button>
+      </form>
+      <form name="counter" class="timer">
+        <input type="text" size="8" name="d2">
+      </form> 
+    </div>
+  </div>
+
+</body>
 <!-- Le timer -->
 
-<form name="counter" class="timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5">
-  <input type="text" size="8" name="d2">
-</form> 
 
 <script type="text/javascript">
 <!-- 
@@ -148,19 +164,6 @@ function display(){
 display() 
 --> 
 </script>
-
-
-<!--  Fin du timer -->
-<!-- <p class="text-center demande">Demander une invitation</p> -->
-<form class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription' action="inscription.php" method="POST">
-  <p class="acces text-center">45 secondes pour recevoir une invitation</p>
-<input type="email" name="email" placeholder="Ton adresse e-mail" required>
-<button class="btn-send">M'inviter</button>
-</form>
-
-  </div>
-
-</body>
 </html>
 
 <?php
@@ -171,20 +174,10 @@ display()
 
 // Calcul de l'adresse ip et disparition du formulaire si déja existante
 
-$row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Adresse_ip WHERE adresse='$_SERVER[REMOTE_ADDR]'"));
+$row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
 
-if ($row) { ?>
-
-<style type="text/css">
-.inscription, .timer{display: none;}
-.chance{margin-top: 2%; border: 3px #5AAFED solid; color: #5AAFED; text-shadow: 0 0 1px black;font-size: 3em; padding: 1%;}
-</style>
-
-<div class='col-md-6 col-md-offset-5 col-xs-12 col-sm-6 col-sm-offset-6 chance'>
-  <p class="text-center">Vous avez déja tenté votre chance, désolé...</p>
-</div>
-
-<?php 
+if ($row) {
+        header("Location: profil.php?token_invite=$row[identifiant]");
 
 }
 
