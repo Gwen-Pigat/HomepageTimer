@@ -1,4 +1,19 @@
-<?php include "include/header.php";
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="version_1/fr/css/style.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script type="text/javascript" src="js/code.js"></script>
+</head>
+
+
+<?php
 
 session_start();
 
@@ -35,7 +50,7 @@ $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adres
 $url = "index.php?token_invite=$row[identifiant]";
 
 echo "<div class='container'>
-<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>$url</a></h5>
+<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>http://www.textr.com/	$url</a></h5>
 <br>";
 
 ?>
@@ -50,3 +65,9 @@ echo "<div class='container'>
 <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
 </div>
+
+ <footer class="footer">
+        <div class="logo">
+  <img src="img/Untitled.png"><p>All rights reserved</p>
+</div>
+    </footer>

@@ -39,7 +39,7 @@ if (isset($_GET['token_invite'])) {
       $mail = new phpmailer();
 
       // Define who the message is from
-      $mail->FromName = 'Textr - Catch ';
+      $mail->FromName = 'VERSION 1 // Textr - Catch ';
 
       // Set the subject of the message
       $mail->Subject = "$_POST[email]";
@@ -159,7 +159,7 @@ $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE email
 $url = "index.php?token_invite=$row[identifiant]";
 
 echo "<div class='container'>
-<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement</a><br><a href=index.php?token_invite=$row[identifiant]>localhost/PHP/Homepage/fr/fr/index.php?token_invite=$row[identifiant]</a></h5>
+<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement</a><br><a href=index.php?token_invite=$row[identifiant]>http://www.textr.com/$url</a></h5>
 <br>";
 
 ?>

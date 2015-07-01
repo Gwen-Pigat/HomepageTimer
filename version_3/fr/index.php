@@ -1,9 +1,9 @@
 <?php include "include/header.php";
 
+
 // Page de l'écran noir, se charge après 30 sec sur l'index
 
-
-$shuffle = str_shuffle("iamthelawbitch1234567890/*-+.");
+$shuffle = str_shuffle("iamthepixofheaven1234567890");
 
 if (isset($_GET['Black_screen'])) { ?>
 
@@ -19,25 +19,46 @@ elseif(isset($_GET['token_invite'])) {
 
   $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE identifiant='$_GET[token_invite]'"));?>
 
-<title>Textr | version_3</title>
+<title>Textr | Invitation</title>
 
 <body>
-  <img class="logo" src="img/Untitled.png">
 
-<div class="container">
-  <div class="col-md-12 col-xs-12 col-sm-6">
+  <div class="col-md-12 col-xs-12 col-sm-12">
 
-<h1 class="text-center main">Contactez toutes les entreprises autour de vous</h1>
+<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+<h1>Chattez en temps réel avec vos  marques préférées</h1>
+<h3>Réservez, achetez, ou demandez des informations</h3>
+</div>
+
+<!-- Le téléphone + ses bulles de texte -->
+
+<!-- <div class="col-md- col-xs-10 col-sm-5 phone">
+<div class="bulle-1 col-md-6 col-xs-10 col-sm-5">Hey toi, laisse nous ton adresse e-mail</div>
+<div class="bulle-2 col-md-6 col-xs-10 col-sm-5">Attention !! Il ne te reste que 15 secondes !!</div>
+<div class="bulle-3 col-md-8 col-xs-10 col-sm-6">Plus que 5 secondes !!</div>
+</div> -->
+
+
+<?php
+
+echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'><form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
+<p class='acces text-center'>45 secondes pour recevoir une invitation</p>
+<input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
+<button class='btn-send'>M'inviter</button>
+</form>
+<form name='counter' class='timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5'>
+  <input type='text' size='8' name='d2'>
+</form> 
+</div>"; 
+  
+?>
 
 <!-- Le timer -->
 
-<form name="counter" class="timer">
-  <input type="text" size="8" name="d2">
-</form> 
+
 
 <script type="text/javascript">
-<!-- 
-// 
+
  var milisec=0 
  var seconds=45
  document.counter.d2.value='45' 
@@ -53,36 +74,17 @@ function display(){
  } 
  else 
     milisec-=1 
-    document.counter.d2.value=seconds+"."+milisec 
+    document.counter.d2.value=seconds+"."+milisec+ " s" 
     setTimeout("display()",100) 
 } 
+
 display() 
---> 
+
 </script>
 
 <!--  Fin du timer -->
 
-
-<!-- Le téléphone + ses bulles de texte -->
-
-<img class="col-md-5 col-md-offset-1 col-xs-2 col-sm-1 phone" src="img/test-1.png">
-<div class="bulle-1 col-md-2">Hey toi, laisse nous ton adresse e-mail</div>
-<div class="bulle-2 col-md-2">Attention !! Il ne te reste que 15 secondes !!</div>
-<div class="bulle-3 col-md-3">Salut !! Je m'appelle Gwen, et dans très exactement 5 secondes, mon bot va détruire ton PC, ahahahahaha</div>
-
-<div class="inscription">
- <h1>Ne perd pas de temps !!</h1>
-<h3>Laisse nous ton adresse e-mail afin de faire partie des premiers heureux élus.</h3>
-</div>
-<?php echo
-"<form class='col-md-5 col-xs-2 col-sm-1 inscription' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
- 
-<input type='email' name='email' placeholder='Ton adresse e-mail' required>
-<button class='btn-send'>Rejoindre</button>
-</form>"; ?>
-
   </div>
-</div>
 
 </body>
 </html>
@@ -108,6 +110,7 @@ else { ?>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
+
 <!-- Le téléphone + ses bulles de texte -->
 
 <!-- <div class="col-md- col-xs-10 col-sm-5 phone">
@@ -117,11 +120,24 @@ else { ?>
 </div> -->
 
 
+
+
+<!--  Fin du timer -->
+<!-- <p class="text-center demande">Demander une invitation</p> -->
+    <div class="col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
+      <p class="acces text-center">45 secondes pour recevoir une invitation</p>
+      <form class="catcher" action="inscription.php" method="POST">
+      <input type="email" name="email" placeholder="Ton adresse e-mail" required>
+      <button class="btn-send">M'inviter</button>
+      </form>
+      <form name="counter" class="timer">
+        <input type="text" size="8" name="d2">
+      </form> 
+    </div>
+  </div>
+</body>
 <!-- Le timer -->
 
-<form name="counter" class="timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5">
-  <input type="text" size="8" name="d2">
-</form> 
 
 <script type="text/javascript">
 <!-- 
@@ -147,19 +163,6 @@ function display(){
 display() 
 --> 
 </script>
-
-
-<!--  Fin du timer -->
-<!-- <p class="text-center demande">Demander une invitation</p> -->
-<form class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription' action="inscription.php" method="POST">
-  <p class="acces text-center">45 secondes pour recevoir une invitation</p>
-<input type="email" name="email" placeholder="Ton adresse e-mail" required>
-<button class="btn-send">M'inviter</button>
-</form>
-
-  </div>
-
-</body>
 </html>
 
 <?php
@@ -170,27 +173,18 @@ display()
 
 // Calcul de l'adresse ip et disparition du formulaire si déja existante
 
-$row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Adresse_ip WHERE adresse='$_SERVER[REMOTE_ADDR]'"));
+$row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
 
-if ($row) { ?>
+if ($row) {
+        header("Location: ../../profil.php?token_invite=$row[identifiant]");
 
-<style type="text/css">
-.inscription, .timer{display: none;}
-.chance{margin-top: 2%; border: 3px #5AAFED solid; color: #5AAFED; text-shadow: 0 0 1px black;font-size: 3em; padding: 1%;}
-</style>
-
-<div class='col-md-6 col-md-offset-5 col-xs-12 col-sm-6 col-sm-offset-6 chance'>
-  <p class="text-center">Vous avez déja tenté votre chance, désolé...</p>
-</div>
-
-<?php 
 }
 
-else{
-  $date = date("Y-m-d H:i:s");
-  mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
-header("Refresh: 2; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
-}
+// else{
+//   $date = date("Y-m-d H:i:s");
+//   mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
+// header("Refresh: 45; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
+// }
 
 
 include "include/footer.php"; ?>

@@ -41,7 +41,8 @@ elseif(isset($_GET['token_invite'])) {
 
 <?php
 
-echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'><form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
+echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'>
+<form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
 <p class='acces text-center'>45 secondes pour recevoir une invitation</p>
 <input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
 <button class='btn-send'>M'inviter</button>
@@ -50,7 +51,7 @@ echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 in
   <input type='text' size='8' name='d2'>
 </form> 
 </div>"; 
-
+  
 ?>
 
 <!-- Le timer -->
@@ -135,7 +136,6 @@ else { ?>
       </form> 
     </div>
   </div>
-
 </body>
 <!-- Le timer -->
 
@@ -177,7 +177,7 @@ display()
 $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
 
 if ($row) {
-        header("Location: profil.php?token_invite=$row[identifiant]");
+        header("Location: ../../profil.php?token_invite=$row[identifiant]");
 
 }
 

@@ -12,5 +12,3 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
 	<script type="text/javascript" src="js/code.js"></script>
 </head>
-
-<?php $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion"); ?>

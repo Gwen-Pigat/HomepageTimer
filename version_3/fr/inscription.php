@@ -1,4 +1,4 @@
-<?php include "include/header.php"; ?>
+<?php include "include/connexion.php"; include "include/header.php"; ?>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -11,12 +11,7 @@
 
 <?php
 
-
-$link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr");
-
-
 // Le parrainage
-
 
 if (isset($_GET['token_invite'])) {
 
@@ -32,9 +27,11 @@ if (isset($_GET['token_invite'])) {
 
       session_start();
       $_SESSION['email'] = $_POST['email'];
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $date = date('Y-m-d H:i:s');
 
       $random = str_shuffle("AKBNGH123456789");
-      mysqli_query($link, "INSERT INTO Catcher(email, identifiant) VALUES ('$_POST[email]','$random')");
+      mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',3,'$ip','$date')");
 
       require 'PHPMailer/class.phpmailer.php';
 
@@ -92,9 +89,12 @@ else{
       session_start();
 
       $_SESSION['email'] = $_POST['email'];
+      $ip = $_SERVER['REMOTE_ADDR'];
+      $date = date('Y-m-d H:i:s');
 
       $random = str_shuffle("AKBNGH123456789");
-  	mysqli_query($link, "INSERT INTO Catcher(email, identifiant) VALUES ('$_POST[email]','$random')");
+    	mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',3,'$ip','$date')");
+      $date  = date("Y-m-d H:i:s");
 
       require 'PHPMailer/class.phpmailer.php';
 
@@ -102,7 +102,7 @@ else{
       $mail = new phpmailer();
 
       // Define who the message is from
-      $mail->FromName = 'Textr - Catch ';
+      $mail->FromName = 'VERSION 3 // Textr - Catch ';
 
       // Set the subject of the message
       $mail->Subject = "$_POST[email]";
@@ -124,18 +124,17 @@ else{
 
       }
   	}
+    else{
+      header('Location: index.php');
+    }
   }
+ 
 }
 
 
-if (isset($_GET["position"])) { 
+if (isset($_GET["position"])) { ?>
 
-session_start();
-
-    ?>
-
-
-<title><?php echo $_SESSION['email']; ?> | Position</title>
+<title><?php echo $_SESSION['email']; ?> s'est inscrit à Textr !</title>
 
 <div class="position text-center">
     <div class="col-md-12 spot">
@@ -154,25 +153,30 @@ session_start();
 <h1>Merci de votre inscription !<br>Textr sera bientot lancé !</h1>
 <br>
 
-
 <?php 
 
 $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE email='$_SESSION[email]'"));
 $url = "index.php?token_invite=$row[identifiant]";
 
-echo "<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement</a><br><a href=index.php?token_invite=$row[identifiant]>localhost/PHP/Homepage/fr/fr/index.php?token_invite=$row[identifiant]</a></h5>
+echo "<div class='container'>
+<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement</a><br><a href=index.php?token_invite=$row[identifiant]>http://www.textr.com/$url</a></h5>
 <br>";
 
 ?>
 
 <!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style col-md-12 text-center">
+<div class="a2a_kit a2a_kit_size_32 a2a_default_style col-md-2 col-md-offset-5">
 <a class="a2a_dd" href=<?php echo $url; ?> /></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_google_plus"></a>
+<a class="a2a_button_facebook"href=<?php echo $url; ?> /></a>
+<a class="a2a_button_twitter" href=<?php echo $url; ?> /></a>
+<a class="a2a_button_google_plus" href=<?php echo $url; ?> /></a>d
 </div>
 <script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
+</div>
+
+<a href="google.com" class="twitter-share-button" 
+  data-count="vertical" data-via="Vous aussi inscrivez vous via ce lien !">Partage</a>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 <?php } ?>
