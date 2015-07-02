@@ -1,19 +1,37 @@
-<?php include "include/header.php";
+<?php include "../../include/header.php";
 
 
 // Page de l'écran noir, se charge après 30 sec sur l'index
 
 $shuffle = str_shuffle("iamthepixofheaven1234567890");
 
-if (isset($_GET['Black_screen'])) { ?>
+if (isset($_GET['Timer_end'])) { 
 
-<title><?php echo $_GET['Black_screen']; ?></title>
+  $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Timer_end WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
+    
+    if ($row == 0) {
+      mysqli_query($link, "INSERT INTO Timer_end(adresse_ip) VALUES ('$_SERVER[REMOTE_ADDR]')");
+    }
 
-<?php echo "<div class='code text-center'><button class='btn btn-join'>LA LEGION VOUS ATTEND</button><br><span class='first'>++Processus d'autodestruction en cours...++</span><br>
-<span class='second'>Ou pas :)</span><br>
-<i class='fa fa-refresh fa-spin fa-5x'></i>
-    </div>";
-}
+  ?>
+
+<title>Fin du timer</title>
+
+<div class="col-md-12 col-xs-12 col-sm-12">
+
+<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+<h1>Vous n'avez pas réussi à vous inscrire dans les temps</h1>
+<h3>Vous pourrez ré-essayer en recevant une invitation d'un de vos amis</h3>
+</div>
+
+
+<!-- <p class="text-center demande">Demander une invitation</p> -->
+    <div class="btn btn-info col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
+      <p class="acces text-center"><i class="fa fa-remove"></i> Vous avez échoué</p>
+    </div>
+</div>      
+
+<?php }
 
 elseif(isset($_GET['token_invite'])) {
 
@@ -30,18 +48,10 @@ elseif(isset($_GET['token_invite'])) {
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
-<!-- Le téléphone + ses bulles de texte -->
-
-<!-- <div class="col-md- col-xs-10 col-sm-5 phone">
-<div class="bulle-1 col-md-6 col-xs-10 col-sm-5">Hey toi, laisse nous ton adresse e-mail</div>
-<div class="bulle-2 col-md-6 col-xs-10 col-sm-5">Attention !! Il ne te reste que 15 secondes !!</div>
-<div class="bulle-3 col-md-8 col-xs-10 col-sm-6">Plus que 5 secondes !!</div>
-</div> -->
-
-
 <?php
 
-echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'><form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
+echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'>
+<form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
 <p class='acces text-center'>45 secondes pour recevoir une invitation</p>
 <input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
 <button class='btn-send'>M'inviter</button>
@@ -91,8 +101,6 @@ display()
 
 <?php
 
-// header("Refresh: 27; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
-
  } 
 
 // Page lancée par défault
@@ -111,18 +119,6 @@ else { ?>
 </div>
 
 
-<!-- Le téléphone + ses bulles de texte -->
-
-<!-- <div class="col-md- col-xs-10 col-sm-5 phone">
-<div class="bulle-1 col-md-6 col-xs-10 col-sm-5">Hey toi, laisse nous ton adresse e-mail</div>
-<div class="bulle-2 col-md-6 col-xs-10 col-sm-5">Attention !! Il ne te reste que 15 secondes !!</div>
-<div class="bulle-3 col-md-8 col-xs-10 col-sm-6">Plus que 5 secondes !!</div>
-</div> -->
-
-
-
-
-<!--  Fin du timer -->
 <!-- <p class="text-center demande">Demander une invitation</p> -->
     <div class="col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
       <p class="acces text-center">45 secondes pour recevoir une invitation</p>
@@ -167,7 +163,13 @@ display()
 
 <?php
 
-// header("Refresh: 27; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
+$row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Timer_end WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
+
+if ($row) {
+  header("Location: landing?Timer_end=$shuffle");
+}
+
+header("Refresh: 45; url=landing?Timer_end=$shuffle");
 
  } 
 
@@ -179,12 +181,6 @@ if ($row) {
         header("Location: ../../profil.php?token_invite=$row[identifiant]");
 
 }
-
-// else{
-//   $date = date("Y-m-d H:i:s");
-//   mysqli_query($link, "INSERT INTO Adresse_ip(adresse, version, date) VALUES ('$_SERVER[REMOTE_ADDR]', 1, '$date')")or die("Erreur de l'insert");
-// header("Refresh: 45; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
-// }
 
 
 include "include/footer.php"; ?>

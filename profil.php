@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="version_1/fr/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Oswald:700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
@@ -11,7 +11,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script type="text/javascript" src="js/code.js"></script>
 </head>
-
+<html>
+    <body>
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.3&appId=104375239900632";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <?php
 
@@ -39,9 +48,8 @@ if ($row == 0) {
          <i class="col-md-2 col-md-offset-1 fa fa-user"></i><p class="col-md-2 col-md-offset-1">Derrière vous :<br><span class="behind">0</span></p>
          <?php } ?>
     </div>
-<br>
-<h1>Merci de votre inscription !<br>Textr sera bientot lancé !</h1>
-<br>
+
+<h1>Merci de votre inscription !<br><img src="img/Logo.png" width="80" style="margin-top: -0.5%"> sera bientot lancé !</h1>
 
 <?php 
 
@@ -49,25 +57,18 @@ $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adres
 $url = "index.php?token_invite=$row[identifiant]";
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
-echo "<div class='container'>
-<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>http://www.textr.com/version_$row[version]/$lang/$url</a></h5>
-<br>";
-
-?>
-
-<!-- AddToAny BEGIN -->
-<div class="a2a_kit a2a_kit_size_32 a2a_default_style col-md-2 col-md-offset-5">
-<a class="a2a_dd" href=<?php echo $url; ?> /></a>
-<a class="a2a_button_facebook"href=<?php echo $url; ?> /></a>
-<a class="a2a_button_twitter" href=<?php echo $url; ?> /></a>
-<a class="a2a_button_google_plus" href=<?php echo $url; ?> /></a>
+echo "<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>http://www.gettextr.com/$lang/version_$row[version]/index.php?token_invite=$row[identifiant]</a></h5>
+    <br>
+    <div class='col-md-4 col-md-offset-4'>
+    <a target='_blank' href='http://www.facebook.com/share.php?u=http://www.gettextr.com/$lang/version_$row[version]/index.php?token_invite=$row[identifiant]'>
+    <img alt='logo facebook' class='social' alt='Facebook'src='http://www.univ-orleans.fr/sites/default/files/Universit%C3%A9/images/facebook.png'/></a><br>
+    <a target='_blank' href='http://www.facebook.com/share.php?u=http://www.gettextr.com/$lang/version_$row[version]/index.php?token_invite=$row[identifiant]'><span class='text-center'>Partagez sur facebook</span></a>
+    </div>"; ?>
 </div>
-<script type="text/javascript" src="//static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-</div>
-
  <footer class="footer">
         <div class="logo">
   <img src="img/Untitled.png"><p>All rights reserved</p>
 </div>
     </footer>
+    </body>
+</html>    

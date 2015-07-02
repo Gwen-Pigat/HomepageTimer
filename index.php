@@ -6,7 +6,6 @@
 </body>
 </html>
 
-
 <?php 
 
 $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion");

@@ -1,4 +1,4 @@
-<?php include "include/header.php";
+<?php include "../../include/header.php";
 
 
 // Page de l'écran noir, se charge après 30 sec sur l'index
@@ -100,8 +100,6 @@ display()
 </html>
 
 <?php
-
-// header("Refresh: 27; url=index.php?Black_screen=$shuffle!!PixOFHeaven_made_this");
 
  } 
 

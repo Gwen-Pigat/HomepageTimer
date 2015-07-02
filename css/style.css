@@ -1,16 +1,16 @@
 @font-face{
 	font-family: "caviar";
-	src: url("../../../fonts/CaviarDreams.ttf");
+	src: url("../fonts/CaviarDreams.ttf");
 }
 
 @font-face{
 	font-family: "generica";
-	src: url("../../../fonts/Generica.otf");
+	src: url("../fonts/Generica.otf");
 }
 
 @font-face{
 	font-family: "genericaBold";
-	src: url("../../../fonts/GenericaBold.otf");
+	src: url("../fonts/GenericaBold.otf");
 }
 
 body{
@@ -23,6 +23,7 @@ body{
 	border: 1px #5AAFED solid;
 	padding: 1.5%;
 }
+
 
 /*le logo*/
 
@@ -85,9 +86,23 @@ body{
 	display: none;
 }
 
-.code span{font-size: 6em; color: #28c223; text-shadow: 0 0 1px #28c223; display: none; }
-.code .second{display: none;}
-.code i{font-size: 8em; color: #28c223; text-shadow: 0 0 1px #28c223; display: none;}
+.code span{
+	font-size: 6em; 
+	color: #28c223; 
+	text-shadow: 0 0 1px #28c223; 
+	display: none; 
+}
+
+.code .second{
+	display: none;
+}
+
+.code i{
+	font-size: 8em; 
+	color: #28c223; 
+	text-shadow: 0 0 1px #28c223; 
+	display: none;
+}
 
 .btn-join{
 	display: none;
@@ -222,51 +237,6 @@ body{
 	color: #5AAFED;
 }
 
-.bulle-1, .bulle-2, .bulle-3{font-size: 1.2em}
-
-.bulle-1{
-	font-family: "Montserrat";
-	border: 3px #5AAFED solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 10%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #5AAFED;
-	display: none;
-}
-
-.bulle-2{
-	font-family: "Montserrat";
-	height: auto;
-	border: 3px #5AAFED solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 50%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #5AAFED;
-	display: none;
-}
-
-.bulle-3{
-	font-family: "Montserrat";
-	height: auto;
-	border: 3px #46629E solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 30%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #46629E;
-	display: none;
-}
-
-.fb-share-button{width: 100%;}
-
 .position{
 	color: black;
 	background-color: white;
@@ -280,6 +250,7 @@ body{
 	background-color: #5AAFED;
 	color: white;
 	padding: 1%;
+	font-size: 1.6em;
 	border-radius: 50px;
 }
 
@@ -289,7 +260,7 @@ body{
 
 .position p{
 	color: black;
-	margin-top: 5%;
+	margin-top: 3%;
 }
 
 .spot{
@@ -423,3 +394,8 @@ body{
 	padding: 2%;
 	font-size: 2em;
 }
+
+
+/* Logo Facebook */
+
+.social{width: 25%;}

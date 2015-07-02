@@ -1,4 +1,4 @@
-<?php include "include/connexion.php"; include "include/header.php"; ?>
+<?php include "../../include/connexion.php"; include "../../include/header.php"; ?>
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -35,7 +35,7 @@ if (isset($_GET['token_invite'])) {
       $random = str_shuffle("AKBNGH123456789");
       mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',1,'$ip','$date')");
 
-      require 'PHPMailer/class.phpmailer.php';
+      require '../../PHPMailer/class.phpmailer.php';
 
       // Instantiate it
       $mail = new phpmailer();
@@ -127,7 +127,7 @@ else{
       mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',1,'$ip','$date')");
       $date  = date("Y-m-d H:i:s");
 
-      require 'PHPMailer/class.phpmailer.php';
+      require '../../PHPMailer/class.phpmailer.php';
 
       // Instantiate it
       $mail = new phpmailer();
