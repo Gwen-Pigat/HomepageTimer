@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Redirect</title>
+	<title>Textr</title>
 </head>
 <body>
 </body>
@@ -10,6 +10,7 @@
 <?php 
 
 $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion");
+
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
 	$a = rand(1,4);

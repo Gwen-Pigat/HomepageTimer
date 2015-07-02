@@ -26,7 +26,9 @@ if (isset($_GET['token_invite'])) {
       else{
 
       session_start();
+
       $_SESSION['email'] = $_POST['email'];
+
       $ip = $_SERVER['REMOTE_ADDR'];
       $date = date('Y-m-d H:i:s');
 
@@ -61,7 +63,36 @@ if (isset($_GET['token_invite'])) {
       $parrain = ($row['nbr_partage'] + 1);
       mysqli_query($link, "UPDATE Catcher SET nbr_partage='$parrain' WHERE identifiant='$_GET[token_invite]'");
 
+
+
       // Envoi du mail au parrain
+
+      // Instantiate it
+      $mail = new phpmailer();
+
+      // Define who the message is from
+      $mail->FromName = 'Nouveau parrainage de Textr ';
+
+      // Set the subject of the message
+      $mail->Subject = "Le parrainé : $_POST[email]";
+
+      $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+
+      // Add the body of the message
+      $body="Bien joué ! Vous avez parrainé une nouvelle personne :\n\n\n
+      Son email : $_POST[email]\n
+      Nombre de parrainage : $row[nbr_partage]\n
+      Pensez à obtenir encore plus de parrainage en partageant ce lien:\n
+      http://www.gettextr.com/$lang/version_$row[version]/index.php?token_invite=$row[identifiant]";
+      $mail->Body = $body;
+
+      // Add a recipient address
+      $mail->AddAddress("$row[email]");
+
+      if(!$mail->Send())
+          echo ('');
+      else
+          echo ('');
 
       header("Location: inscription.php?position=$random");
 
@@ -74,7 +105,7 @@ else{
 //Check la méthode post + si le champ n'était pas vide
 
   if (isset($_POST) && isset($_POST['email'])) {
-  	if (!empty($_POST['email'])) {
+    if (!empty($_POST['email'])) {
 
       $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE email='$_POST[email]'"));
 
@@ -93,7 +124,7 @@ else{
       $date = date('Y-m-d H:i:s');
 
       $random = str_shuffle("AKBNGH123456789");
-    	mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',1,'$ip','$date')");
+      mysqli_query($link, "INSERT INTO Catcher(email, identifiant, version, adresse_ip, date) VALUES ('$_POST[email]','$random',1,'$ip','$date')");
       $date  = date("Y-m-d H:i:s");
 
       require 'PHPMailer/class.phpmailer.php';
@@ -102,7 +133,7 @@ else{
       $mail = new phpmailer();
 
       // Define who the message is from
-      $mail->FromName = 'Textr - Catch ';
+      $mail->FromName = 'VERSION 1 // Textr - Catch ';
 
       // Set the subject of the message
       $mail->Subject = "$_POST[email]";
@@ -123,12 +154,11 @@ else{
       header("Location: inscription.php?position=$random");
 
       }
-  	}
+    }
     else{
       header('Location: index.php');
     }
   }
- 
 }
 
 

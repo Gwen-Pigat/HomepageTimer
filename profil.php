@@ -16,8 +16,7 @@
 <?php
 
 session_start();
-
-$link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr");
+$link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion");
 $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
 
 if ($row == 0) {
@@ -48,9 +47,10 @@ if ($row == 0) {
 
 $row = mysqli_fetch_assoc(mysqli_query($link, "SELECT * FROM Catcher WHERE adresse_ip='$_SERVER[REMOTE_ADDR]'"));
 $url = "index.php?token_invite=$row[identifiant]";
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
 echo "<div class='container'>
-<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>http://www.textr.com/	$url</a></h5>
+<h5 class='col-md-6 col-md-offset-3'>Partagez ce lien afin de remonter votre place dans le classement<br><a href=$url>http://www.textr.com/version_$row[version]/$lang/$url</a></h5>
 <br>";
 
 ?>

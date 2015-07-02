@@ -222,51 +222,6 @@ body{
 	color: #5AAFED;
 }
 
-.bulle-1, .bulle-2, .bulle-3{font-size: 1.2em}
-
-.bulle-1{
-	font-family: "Montserrat";
-	border: 3px #5AAFED solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 10%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #5AAFED;
-	display: none;
-}
-
-.bulle-2{
-	font-family: "Montserrat";
-	height: auto;
-	border: 3px #5AAFED solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 50%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #5AAFED;
-	display: none;
-}
-
-.bulle-3{
-	font-family: "Montserrat";
-	height: auto;
-	border: 3px #46629E solid;
-	color: white;
-	/*position: absolute;*/
-	z-index: 2;
-	margin-top: 30%;
-	padding: 1%;
-	border-radius: 5px;
-	background-color: #46629E;
-	display: none;
-}
-
-.fb-share-button{width: 100%;}
-
 .position{
 	color: black;
 	background-color: white;

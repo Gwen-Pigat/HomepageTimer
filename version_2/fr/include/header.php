@@ -13,4 +13,4 @@
 	<script type="text/javascript" src="js/code.js"></script>
 </head>
 
-<?php $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or die("Erreur de connexion"); ?>
+<?php $link = mysqli_connect("gettextrjpgwen.mysql.db","gettextrjpgwen","War12wick","gettextrjpgwen")or die("Erreur de connexion"); ?>
