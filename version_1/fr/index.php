@@ -19,14 +19,14 @@ if (isset($_GET['Timer_end'])) {
 
 <div class="col-md-12 col-xs-12 col-sm-12">
 
-<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-12">
 <h1>Vous n'avez pas réussi à vous inscrire dans les temps</h1>
 <h3>Vous pourrez ré-essayer en recevant une invitation d'un de vos amis</h3>
 </div>
 
 
 <!-- <p class="text-center demande">Demander une invitation</p> -->
-    <div class="btn btn-info col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
+    <div class="btn btn-info col-md-6 col-md-offset-6 col-xs-12 col-sm-6 inscription">
       <p class="acces text-center"><i class="fa fa-remove"></i> Vous avez échoué</p>
     </div>
 </div>      
@@ -51,12 +51,12 @@ elseif(isset($_GET['token_invite'])) {
 <?php
 
 echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription'>
-<form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
 <p class='acces text-center'>45 secondes pour recevoir une invitation</p>
+<form class='catcher' action='inscription.php?token_invite=$row[identifiant]' method='POST'>
 <input id='email' type='email' name='email' placeholder='Ton adresse e-mail' required>
 <button class='btn-send'>M'inviter</button>
 </form>
-<form name='counter' class='timer col-md-6 col-md-offset-6 col-xs-5 col-xs-offset-5 col-sm-5 col-sm-offset-5'>
+<form name='counter' class='timer'>
   <input type='text' size='8' name='d2'>
 </form> 
 </div>"; 
@@ -100,6 +100,8 @@ display()
 </html>
 
 <?php
+
+header("Refresh: 45; url=index.php?Timer_end=$shuffle");
 
  } 
 

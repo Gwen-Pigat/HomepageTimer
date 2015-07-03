@@ -19,14 +19,14 @@ if (isset($_GET['Timer_end'])) {
 
 <div class="col-md-12 col-xs-12 col-sm-12">
 
-<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-12">
 <h1>Vous n'avez pas réussi à vous inscrire dans les temps</h1>
 <h3>Vous pourrez ré-essayer en recevant une invitation d'un de vos amis</h3>
 </div>
 
 
 <!-- <p class="text-center demande">Demander une invitation</p> -->
-    <div class="btn btn-info col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
+    <div class="btn btn-info col-md-6 col-md-offset-6 col-xs-12 col-sm-6 inscription">
       <p class="acces text-center"><i class="fa fa-remove"></i> Vous avez échoué</p>
     </div>
 </div>      
