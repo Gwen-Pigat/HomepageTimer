@@ -44,7 +44,7 @@ elseif(isset($_GET['token_invite'])) {
   <div class="col-md-12 col-xs-12 col-sm-12">
 
 <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chat entre commerçants et consommateurs</h1>
+<h1>Chattez avec les entreprises aussi facilement qu'avec vos amis</h1>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
@@ -114,7 +114,7 @@ else { ?>
   <div class="col-md-12 col-xs-12 col-sm-12">
 
 <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chat entre commerçants et consommateurs</h1>
+<h1>Chattez avec les entreprises aussi facilement qu'avec vos amis</h1>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 

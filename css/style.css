@@ -135,19 +135,6 @@ nav{
 	display: none;
 }
 
-.phone{
-	margin-top: 12%;
-	position: absolute;
-	height: 80%;
-	margin-left: -3%;
-	float: left;
-	/*background-color: #efefce;*/
-	z-index: -1;
-	display: none;
-	transform: rotate(8deg);
-	  width: 28%;
-}
-
 .secondes{
 	font-size: 16px;
 }
@@ -167,8 +154,10 @@ nav{
 	text-align: center;
 	background-color: rgba(0,0,0,0);
 	border: 0px;
-	font-size: 2em;
+	font-size: 2.5em;
 	text-shadow: 0 0 1px #5AAFED;
+	margin-left: 4%;
+	margin-top: -38%;
 }
 
 .catcher{
@@ -215,11 +204,9 @@ nav{
 	margin-top: 1%;
 }
 
-
-
 .main h1{
 	margin-top: 25%;
-	font-size: 4.5em;
+	font-size: 4em;
 	color: white;
 	font-family: "caviar";
 }
@@ -268,7 +255,6 @@ nav{
 }
 
 .spot{
-	margin-bottom: 5%;
 	color: #28c223;
 }
 
@@ -289,6 +275,7 @@ nav{
 /*Format tablette*/
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
+	
 	body{
 		background-size: auto;
 	}
@@ -299,29 +286,38 @@ nav{
 	box-shadow: 0 0 10px 5px black;
 	margin-bottom: 15%;
 	}
-
-  .main h1 {
-	margin-top: 4%;
+	.main h1 {
+	margin-top: 5%;
 	font-size: 2.5em;
-  }
-  .main{
-  	margin-top: 5%;
-  }
-  .inscription{
-  	font-size: 0.6em;
-  }
-  .inscription h3{
-  	font-size: 2em;
-  }
-  .timer{
-  	font-size: 0.6em;
-  }
-  .footer{
-  	position: fixed;
-  	width: 100%;
-  	display: none;
-  }
+	}
+	.main{
+	margin-top: 5%;
+	}
+	.timer input{
+	margin: -40% 0% 0% 10%;
+	font-size: 4em;
+	}
+	.inscription{
+	font-size: 0.6em;
+	max-width: 36%;
+	}
+	.inscription h3{
+	font-size: 2em;
+	}
+	.timer{
+	font-size: 0.6em;
+	}
+	.footer{
+	position: fixed;
+	width: 100%;
+	display: none;
+	}
 }
+
+/*Fin format tablette*/
+
+
+/* PC petit format */
 
 @media screen and (min-width: 1200px) and (max-width: 1600px) {
 
@@ -329,9 +325,26 @@ nav{
 		background-size: 100%;
 	}
 
+.timer input{
+	color: #5AAFED;
+	text-align: center;
+	background-color: rgba(0,0,0,0);
+	border: 0px;
+	font-size: 2.5em;
+	text-shadow: 0 0 1px #5AAFED;
+	margin-top: -32%;
+	margin-left: -15%;
+}
+.catcher{
+	width: 70%;
+}
+.catcher input{
+	font-size: 2em;
+}
+
   .main h1 {
-	margin-top: 4%;
-	font-size: 3.5em;
+	margin-top: 7%;
+	font-size: 4em;
   }
   .main{
   	margin-top: 5%;
@@ -339,8 +352,23 @@ nav{
   .inscription{
   	font-size: 0.6em;
   }
+  .inscription{
+	margin-top: 5%;
+	font-family: "caviar";
+	max-width: 34%;
+	min-width: 40%;
+	padding: 1%;
+	border: 1px white solid;
+	}
+  .inscription .btn-send{
+  	font-size: 2em;
+  }
+
   .inscription h3{
   	font-size: 2em;
+  }
+  .inscription p{
+  	font-size: 2.6em;
   }
   .timer{
   	font-size: 1.6em;
@@ -353,16 +381,18 @@ nav{
   }
 }
 
-/*Fin format tablette*/
+/* Fin PC petit format */
+
+
 
 /*Format téléphone*/
 
 @media screen and (max-width: 768px) {
 
 	body{
-		background-size: auto;
+		background: url("../img/Layer-mobile.png") top no-repeat;
+		background-size: 100%;
 	}
-
 	nav{
 	display: block;
 	padding: 2%;
@@ -370,13 +400,29 @@ nav{
 	box-shadow: 0 0 10px 5px black;
 	margin-bottom: 15%;
 	}
-
+	.col-xs-12{
+	margin: 0;
+	padding: 0;
+	}
+	.timer input{
+	color: #5AAFED;
+	text-align: center;
+	background-color: rgba(0,0,0,0);
+	border: 0px;
+	font-size: 1.5em;
+	text-shadow: 0 0 1px #5AAFED;
+	margin-top: -40%;
+	margin-left: 50%;
+}
+.catcher{
+	width: 80%;
+}
   .main h3{
   	font-size: 1.4em;
-  	color: black;
+  	color: white;
   }	 
   .main h1 {
-  	font-size: 2em;
+  	font-size: 1.8em;
 	margin-top: 5%;
 	color: white;
   }
@@ -387,9 +433,14 @@ nav{
   	opacity: 0;
   }
   .inscription{
-  	font-size: 0.6em;
+	font-size: 0.6em;
 	min-width: 100%;
-	margin-top: 20%;
+	margin-top: 105%;
+	background-color: white;
+	padding: 2%;  
+  }
+  .inscription p{
+  	color: black;
   }
   .inscription h3{
   	font-size: 2em;

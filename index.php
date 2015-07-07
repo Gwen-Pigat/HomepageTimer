@@ -12,7 +12,7 @@ $link = mysqli_connect("localhost","root","motdepasselocalhostgwen","Textr")or d
 
 $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 
-	$a = rand(1,4);
+	$a = rand(1,6);
 
  	$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
 

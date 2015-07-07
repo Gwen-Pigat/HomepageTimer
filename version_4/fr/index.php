@@ -44,7 +44,7 @@ elseif(isset($_GET['token_invite'])) {
   <div class="col-md-12 col-xs-12 col-sm-12">
 
 <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chattez en temps réel avec vos  marques préférées</h1>
+<h1>Vos commerçants dans la poche</h1>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
@@ -114,7 +114,7 @@ else { ?>
   <div class="col-md-12 col-xs-12 col-sm-12">
 
 <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chattez en temps réel avec vos  marques préférées</h1>
+<h1>Vos commerçants dans la poche</h1>
 <h3>Réservez, achetez, ou demandez des informations</h3>
 </div>
 
@@ -169,7 +169,7 @@ if ($row) {
   header("Location: index.php?Timer_end=$shuffle");
 }
 
-header("Refresh: 45; url=index.php?Timer_end=$shuffle");
+// header("Refresh: 45; url=index.php?Timer_end=$shuffle");
 
  } 
 

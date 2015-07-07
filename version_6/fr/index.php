@@ -43,10 +43,10 @@ elseif(isset($_GET['token_invite'])) {
 
   <div class="col-md-12 col-xs-12 col-sm-12">
 
-<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chat entre commerçants et consommateurs</h1>
-<h3>Réservez, achetez, ou demandez des informations</h3>
-</div>
+    <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+      <h1>Chattez avec les entreprises aussi facilement qu'avec vos amis</h1>
+      <h3>Réservez, achetez, ou demandez des informations</h3>
+    </div>
 
 <?php
 
@@ -64,9 +64,6 @@ echo "<div class='col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 in
 ?>
 
 <!-- Le timer -->
-
-
-
 <script type="text/javascript">
 
  var milisec=0 
@@ -91,7 +88,6 @@ function display(){
 display() 
 
 </script>
-
 <!--  Fin du timer -->
 
   </div>
@@ -113,13 +109,11 @@ else { ?>
 
   <div class="col-md-12 col-xs-12 col-sm-12">
 
-<div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
-<h1>Chat entre commerçants et consommateurs</h1>
-<h3>Réservez, achetez, ou demandez des informations</h3>
-</div>
+    <div class="text-center main col-md-6 col-md-offset-5 col-xs-12 col-sm-9 col-sm-offset-2">
+      <h1>Chattez avec les entreprises aussi facilement qu'avec vos amis</h1>
+      <h3>Réservez, achetez, ou demandez des informations</h3>
+    </div>
 
-
-<!-- <p class="text-center demande">Demander une invitation</p> -->
     <div class="col-md-6 col-md-offset-6 col-xs-12 col-sm-6 col-sm-offset-6 inscription">
       <p class="acces text-center">45 secondes pour recevoir une invitation</p>
       <form class="catcher" action="inscription.php" method="POST">
@@ -169,7 +163,7 @@ if ($row) {
   header("Location: index.php?Timer_end=$shuffle");
 }
 
-header("Refresh: 45; url=index.php?Timer_end=$shuffle");
+// header("Refresh: 45; url=index.php?Timer_end=$shuffle");
 
  } 
 
